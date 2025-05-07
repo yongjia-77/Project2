@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class MushroomHoverController : MonoBehaviour
+public class VRMushroomGazeController : MonoBehaviour
 {
     [Header("References")]
     public SkinnedMeshRenderer capRenderer;
     public SkinnedMeshRenderer ringRenderer;
     public SkinnedMeshRenderer stemRenderer;
+    public Camera vrCamera; // Reference to the VR camera
 
     [Header("ShapeKey Settings")]
     public string capShapeKey1 = "Key 1";
@@ -15,6 +16,7 @@ public class MushroomHoverController : MonoBehaviour
     public string stemShapeKey = "Key 1";
 
     [Header("Animation Settings")]
+    public float gazeDelay = 1.0f; // How long to look before activating
     public float capAnimationDuration = 6.0f;
     public float ringAnimationDuration = 6.5f;
     public float stemAnimationDuration = 6.5f;
@@ -27,8 +29,9 @@ public class MushroomHoverController : MonoBehaviour
     private BoxCollider boxCollider;
     private Vector3 originalColliderSize;
     private Vector3 originalColliderCenter;
-    private bool isHovering = false;
+    private bool isGazing = false;
     private bool isAnimationStarted = false;
+    private float gazeTimer = 0;
     private Coroutine animationCoroutine;
 
     // Blend shape values
@@ -110,7 +113,14 @@ public class MushroomHoverController : MonoBehaviour
         LogErrorIfNeeded(ringRenderer, ringShapeKeyIndex, ringShapeKey, "Ring");
         LogErrorIfNeeded(stemRenderer, stemShapeKeyIndex, stemShapeKey, "Stem");
 
-        Debug.Log("MushroomHoverController initialized");
+        // If VR camera not assigned, try to find main camera
+        if (vrCamera == null)
+        {
+            vrCamera = Camera.main;
+            Debug.LogWarning("VR Camera not assigned, using Main Camera instead");
+        }
+
+        Debug.Log("VRMushroomGazeController initialized");
     }
 
     // Helper method to find shape key index by name
@@ -141,25 +151,47 @@ public class MushroomHoverController : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
+    void Update()
     {
-        isHovering = true;
-        Debug.Log("Mouse entered collision area");
+        if (vrCamera == null)
+            return;
 
-        if (!isAnimationStarted)
-        {
-            StartAnimation();
-        }
-    }
+        // Cast a ray from the VR camera center
+        Ray gazeRay = new Ray(vrCamera.transform.position, vrCamera.transform.forward);
+        RaycastHit hit;
 
-    void OnMouseExit()
-    {
-        isHovering = false;
-        if (isAnimationStarted)
+        // Check if the ray hits this object's collider
+        if (boxCollider.Raycast(gazeRay, out hit, 100f))
         {
-            StopAnimation();
+            if (!isGazing)
+            {
+                isGazing = true;
+                gazeTimer = 0;
+                Debug.Log("Gaze entered collision area");
+            }
+
+            // Increment timer when gazing
+            gazeTimer += Time.deltaTime;
+
+            if (gazeTimer >= gazeDelay && !isAnimationStarted)
+            {
+                StartAnimation();
+            }
         }
-        Debug.Log("Mouse exited collision area");
+        else
+        {
+            // Not gazing at object
+            if (isGazing)
+            {
+                isGazing = false;
+                Debug.Log("Gaze exited collision area");
+
+                if (isAnimationStarted)
+                {
+                    StopAnimation();
+                }
+            }
+        }
     }
 
     void StartAnimation()
@@ -293,5 +325,15 @@ public class MushroomHoverController : MonoBehaviour
 
         boxCollider.size = originalColliderSize;
         boxCollider.center = originalColliderCenter;
+    }
+
+    // Optional: Add visual feedback for debugging
+    void OnGUI()
+    {
+        if (isGazing)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 200, 30),
+                "Gazing at mushroom: " + gameObject.name + " (" + gazeTimer.ToString("F1") + "s)");
+        }
     }
 }
