@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class VRMushroomGazeController : MonoBehaviour
+public class MushroomHoverController : MonoBehaviour
 {
     [Header("References")]
     public SkinnedMeshRenderer capRenderer;
