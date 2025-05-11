@@ -231,7 +231,16 @@
         "com.unity.xr.management": "4.4.0",
         "com.unity.xr.legacyinputhelpers": "2.1.2"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
+    },
+    "www.nulltale.ditherfx": {
+      "version": "https://github.com/NullTale/DitherFx.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "14.0.6"
+      },
+      "hash": "adc21673e930dc024aef240906aee793c8f046a3"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

@@ -1,5 +1,365 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8790594811175462546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df16983cdbc45e59623974172f2908b, type: 3}
+  m_Name: VolFx
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  _event: 600
+  _format:
+    enabled: 1
+    value: 0
+  _mask:
+    enabled: 0
+    value:
+      m_Bits: 0
+  _source:
+    _source: 0
+    _sourceTex: _inputTex
+    _renderTex: {fileID: 0}
+    _buffer: {fileID: 0}
+    _maskOverride:
+      enabled: 0
+      value:
+        m_Bits: 0
+    _output: 0
+    _screenOutput: 0
+    _outputTex: _outputTex
+  _passes:
+    m_List:
+    - {fileID: 3999395124464608629}
+  _blitShader: {fileID: 4800000, guid: a8a709d9db2241741ab3032b946ef258, type: 3}
+--- !u!114 &-8412097452095597488
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704e9f69207ce0e44a2be12086db83b0, type: 3}
+  m_Name: Dither
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 0e83aac3b775ca94b92d8aaafbad155e, type: 3}
+  _noiseScale: 0.5
+  _scaleRange: {x: 1, y: 100}
+  _palette: {fileID: 2800000, guid: f0323015424723846be8cbd5f6b23d08, type: 3}
+  _pattern: {fileID: 2800000, guid: a7ad2a875f5fcf442a267169bae8f2bb, type: 3}
+  _noiseMode: 1
+  _pixelate: 1
+  _scale: 0.735
+  _frameRate: 0
+--- !u!114 &-7558476617395608022
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447ed90198624d459ee11f60dbf86ffc, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: a181405f9bf44aef9074ccf0a6292106, type: 3}
+  _mode: 1
+  _samples: 7
+  _scatterMax:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _scatterMin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flicker:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.77
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  _flickerPeriod: 7
+  _hdr: 1
+  _bloomOnly: 0
+--- !u!114 &-6437328927831867844
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b100ac26964d4caf6d0e26acf977bc, type: 3}
+  m_Name: Scanlines
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 80f8a891f2f2ddb43b3992b8bfe31d7f, type: 3}
+  _move:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  _movePeriod: 5
+  _flickerCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.1597
+      outSlope: 1.1597
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.2274
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1.5078
+      outSlope: 1.5078
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.2807
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  _flickerPeriod: 1.2
+  _gradRange: {x: 0.07, y: 3}
+  _flickerMove: {x: 0.2, y: 3}
+  _flipCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flipRelease: 0.1
+  _forceCount:
+    enabled: 0
+    value: 570
+--- !u!114 &-6054070915710705698
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b112dda1e626fd4994e8b9c5b84df3e, type: 3}
+  m_Name: Adjustments
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: f3f2512ee1fe3774ba15927559ebdd5d, type: 3}
+--- !u!114 &-5958020465387988592
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cd2a60ad2e44a2926a745d3badfdef, type: 3}
+  m_Name: Slice
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: eecc13e7dfb840cca948414bfb3cbc79, type: 3}
+--- !u!114 &-5443248644313546842
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8f4db9a2fd4f108b1374528137ff26, type: 3}
+  m_Name: Distort
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 9c32f8d52c844eaab1fc42000e1eef87, type: 3}
+  _motionMul: 1
+--- !u!114 &-3358166169688045096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c53165b379c3d94ca34b12cb8eb10f1, type: 3}
+  m_Name: VolFx
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  _event: 550
+  _format:
+    enabled: 1
+    value: 0
+  _mask:
+    enabled: 0
+    value:
+      serializedVersion: 2
+      m_Bits: 0
+  _source:
+    _source: 0
+    _globalTex: _inputTex
+    _renderTex: {fileID: 0}
+    _pool: {fileID: 0}
+  _output:
+    _output: 0
+    _renderTex: {fileID: 0}
+    _outputTex: _VolFxTex
+    _sortingOrder: 0
+    _camDistance: 100
+  _passes:
+    m_List:
+    - {fileID: -6054070915710705698}
+    - {fileID: -7558476617395608022}
+    - {fileID: -512378487690675274}
+    - {fileID: 5887229802458022938}
+    - {fileID: -5443248644313546842}
+    - {fileID: 7916322985660297801}
+    - {fileID: 1818551948318905382}
+    - {fileID: 3658660360676567555}
+    - {fileID: -2778505933916937280}
+    - {fileID: -6437328927831867844}
+    - {fileID: 4363877940918076538}
+    - {fileID: -5958020465387988592}
+    - {fileID: 4850690052914319678}
+    - {fileID: -8412097452095597488}
+  _blitShader: {fileID: 4800000, guid: a8a709d9db2241741ab3032b946ef258, type: 3}
+--- !u!114 &-2778505933916937280
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2289ef181fab4c4c924f185b43c6a20, type: 3}
+  m_Name: Posterize
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 7197a098de6065f4ab8a580c8f8c7226, type: 3}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,6 +395,63 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 3302065f671a8450b82c9ddf07426f3a, type: 3}
   - {fileID: 2800000, guid: 56a77a3e8d64f47b6afe9e3c95cb57d5, type: 3}
   m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+--- !u!114 &-512378487690675274
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a3c1ae8c044449049a98373e05c46, type: 3}
+  m_Name: Blur
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: b653195d866dd764b888bc5edc759074, type: 3}
+  _response:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.03
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _filter:
+  - 0.003236246
+  - 0.0077324267
+  - 0.019586023
+  - 0.03634456
+  - 0.055555556
+  - 0.074766554
+  - 0.091525085
+  - 0.10337868
+  - 0.10787487
+  - 0.10787487
+  - 0.10337868
+  - 0.091525085
+  - 0.074766554
+  - 0.055555556
+  - 0.03634456
+  - 0.019586023
+  - 0.0077324267
+  - 0.003236246
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +470,8 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  m_RendererFeatureMap: adc0de57c6d2eee5
+  - {fileID: -3358166169688045096}
+  m_RendererFeatureMap: adc0de57c6d2eee5d8890237a96565d1
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -96,3 +514,257 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &1818551948318905382
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff530a28ee2942c429ac8879889d8215, type: 3}
+  m_Name: Grayscale
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: fc78cc8bb01197248b8a758ee38592b9, type: 3}
+--- !u!114 &3658660360676567555
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb8271c6634d194ca074e3c52a639ee, type: 3}
+  m_Name: Invert
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: a8a8d9d8743c6f64b89ba15b99d6ba9c, type: 3}
+  _lerp:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3999395124464608629
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447ed90198624d459ee11f60dbf86ffc, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: a181405f9bf44aef9074ccf0a6292106, type: 3}
+  _mode: 0
+  _samples: 9
+  _scatterMax:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _scatterMin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flicker:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.77
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  _flickerPeriod: 7
+  _hdr: 1
+  _bloomOnly: 0
+--- !u!114 &4363877940918076538
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125142d956014102a2983be8a46260c7, type: 3}
+  m_Name: Sharpen
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: a1512fee65ae9fe4f819adaab1f68f74, type: 3}
+  _lerp:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _range: {x: 0, y: 3}
+--- !u!114 &4850690052914319678
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d855550e46694270a49d1d1d670f411c, type: 3}
+  m_Name: Mask
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 428ef3a835824a688c5b1034981fecf9, type: 3}
+  _mode: 0
+  _useVolumeSettings: 1
+  _persistent: 0
+  _weight: 1
+  _mask: {fileID: 0}
+  _showInInspector: 0
+--- !u!114 &5887229802458022938
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a16e723449431ba1367f4805bf053e, type: 3}
+  m_Name: Chromatic
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 2bc242da8bd3afc46b9a21ba0353488a, type: 3}
+--- !u!114 &7916322985660297801
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf1dc9f250f44cdac2b649e3c7e3889, type: 3}
+  m_Name: Grain
+  m_EditorClassIdentifier: 
+  _active: 1
+  _shader: {fileID: 4800000, guid: 818caa6126f9d414eb0665f96ee8a7dc, type: 3}
+  _grain: 2
+  _grainTex:
+  - {fileID: 2800000, guid: 7541986b93a62994e94815edfe712921, type: 3}
+  - {fileID: 2800000, guid: a15fa6e666dfd2b42a2601f9ba4305b9, type: 3}
+  - {fileID: 2800000, guid: 73ad0d32b5522d54ab220ac4d69cf9cf, type: 3}
+  - {fileID: 2800000, guid: c3085ad123782bd419925400d3ed7936, type: 3}
+  - {fileID: 2800000, guid: 071beb00a0a037a4da0b0316246c08bb, type: 3}
+  - {fileID: 2800000, guid: 9e571517d66178d4fb7d25b64101fceb, type: 3}
+  - {fileID: 2800000, guid: 4a38babe1216af748a4d03100ca86b29, type: 3}
+  - {fileID: 2800000, guid: 2d47b2e1e54f9ed40ad6ea7d2f8bade0, type: 3}
+  - {fileID: 2800000, guid: 9485bc6a96023904c81c6d360043df74, type: 3}
+  - {fileID: 2800000, guid: d7af5dd6cba23e744a255c071297ae5c, type: 3}
+  - {fileID: 2800000, guid: 2cb163f37e9b5b24ea6a80fb26d1dcb0, type: 3}
+  - {fileID: 2800000, guid: 8a0824da1995cd648bcdb663180f186d, type: 3}
+  _grainClamp: 0.5
